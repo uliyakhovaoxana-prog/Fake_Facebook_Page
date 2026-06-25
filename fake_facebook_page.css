@@ -1,0 +1,1339 @@
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: white;
+    margin: 0; 
+    padding: 0;
+    color: #1c1e21;
+}
+/* Адаптация под ноуты и мониторы */
+@media (min-width: 1024px) {
+    .content {
+        flex: 3; /* Занимает 3 части пространства */
+    }
+    .sidebar {
+        flex: 1; /* Занимает 1 часть пространства */
+    }
+}
+/* Адаптация под маленькие экраны (мобильные) */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column; /* Ставит блоки друг под другом */
+    }
+}
+html { 
+    font-size: 16px; /* Базовый */
+} 
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;  /* На больших экранах шрифт крупнее */
+    }
+}
+/* --- НАВИГАЦИЯ (ШАПКА) --- */
+.navbar { /* Основной контейнер навигации */
+    width: auto;
+    height: 53px;
+    background: white;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+}
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+}
+.nav-icon-logo {
+    width: 40px;      /* Размер иконок */
+    height: 40px;
+    object-fit: cover; /* Обрезает фото, чтобы оно вписалось в размер */
+    border-radius: 50%; /* Делает фото круглым */
+}
+.nav-icon-logo:hover {
+    cursor: pointer;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5; /* Цвет фона */
+    border-radius: 20px;       /* Закругленные края */
+    width: 267px;              /* Ширина блока */
+    height: 40px;              /* Высота блока */
+    margin-left: 8px;
+    padding-left: 10px;
+}
+
+.search-icon {
+    width: 16.8px;
+    height: 17.5px;
+    margin-right: 6.5px;
+}
+
+.search-input {
+    border: none;              /* Убираем стандартную рамку */
+    background: transparent;   /* Прозрачный фон для input */
+    outline: none;             /* Убираем синюю рамку при клике */
+    font-size: 15px;
+    font-weight: 400;
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+.search-input::placeholder {
+    color: #65676b;            /* Цвет текста подсказки */
+}
+.nav-center{
+    width: 595px;
+    margin-left: 120px;  
+    justify-content: space-between; /*Распределяет элементы на одинаковом растоянии*/
+    text-align: center;
+}
+.nav-center-icon{
+    Width: 114px;      /* Размер иконок */
+    height: 48px;
+    border-radius: 10px; /* Закругленные края для иконок */
+}
+.nav-center-icon:hover {
+    background-color: #f2f2f2; /* Цвет фона при наведении */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+}
+.nav-center-icon img {
+    margin-top: 12px; /* Отступ сверху для иконок */
+    width: 22.5px;      /* Размер иконок */
+    height: 22.5px;
+    object-fit: cover; /* Обрезает фото, чтобы оно вписалось в размер */    
+}
+.nav-right{
+    width: 185px;
+    height: 53px;
+    margin-left: 277px; /* Центрируем элемент */
+    justify-content: space-between; /*Распределяет элементы на одинаковом растоянии*/
+    text-align: center; /*Выравнивание иконок по центру*/
+}
+.nav-right-icon {
+    width: 40px;      /* Размер иконок */
+    height: 40px;
+    margin-top: 7px; /* Отступ сверху для иконок */
+    text-align: center;
+    object-fit: cover; /* Обрезает фото, чтобы оно вписалось в размер */
+    border-radius: 50%; /* Делает фото круглым */
+    background-color: #e2e5e9; /* Цвет фона для иконок */
+}
+.nav-right-icon img {
+    margin-top: 9px; /* Отступ сверху для иконок */
+    width: 20px;      /* Размер иконок */
+    height: 20px;
+    object-fit: cover; /* Обрезает фото, чтобы оно вписалось в размер */    
+}
+.nav-right-icon :hover {
+    cursor: pointer; /* Курсор в виде руки при наведении */
+}
+/* Контейнер для аватара со стрелочкой */
+.avatar-container {
+    position: relative; /* Чтобы стрелочка "сидела" относительно этого блока */
+    display: inline-block;
+}
+.nav-right-icon1 {
+    width: 40px;      /* Размер иконок */
+    height: 40px;
+    margin-top: 7px; /* Отступ сверху для иконок */
+    text-align: center;
+    object-fit: cover; /* Обрезает фото, чтобы оно вписалось в размер */
+    border-radius: 50%; /* Делает фото круглым */
+    background-color: #e2e5e9; /* Цвет фона для иконок */
+    border: 1px solid #cbced1; /* Легкая рамка для аватара */
+}
+.nav-right-icon1:hover {
+    cursor: pointer; /* Курсор в виде руки при наведении */
+}
+.arrow-badge img {
+    display: block; /* Убираем лишние отступы вокруг изображения */
+    position: absolute; /* Позволяет позиционировать стрелочку относительно аватара */
+    margin-top: -17px; /* Убираем отступ сверху для стрелочки */
+    margin-left: 23px; /* Отодвигаем стрелочку вправо от аватара */
+    width: 17px;         /* Размер стрелочки внутри кружка */
+    height: 17px;
+    object-fit: cover; /* Обрезает фото, чтобы оно вписалось в размер */ 
+}
+.arrow-badge :hover {
+    cursor: pointer; /* Курсор в виде руки при наведении */
+}
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .nav-center {
+        display: none; /* Скрываем центральное меню на телефонах */
+    }
+}
+/*---------------------------------------------------------------------------------------------------------------------------*/
+/* Обертка для обложки */
+.cover-wrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+}
+
+/* ГРАДИЕНТ (лежит за обложкой) */
+.gradient-behind-cover {
+    position: absolute;
+    top: 0; left: 0; 
+    margin-bottom: 0;
+    width: 100%; 
+    height: 290px;
+    background: linear-gradient(to bottom, #20140f, transparent 95%, transparent 5%, white);
+    z-index: 1;
+}
+
+/* ОБЛОЖКА */
+.cover-photo {
+    margin-left: 215px;
+    width: 1095px; 
+    height: 405px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    position: relative;
+    object-fit: cover; /* Обрезает фото, чтобы оно вписалось в размер */
+    z-index: 2;
+    overflow: hidden; /* Чтобы изображение не вылезало за границы */
+}
+.cover-photo:hover{
+    filter: brightness(0.90); /*эффект легкого затемнения*/
+    cursor: pointer; /* Появится курсор-палец, указывающий на кликабельность */
+}
+
+.cover-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Картинка заполняет блок без искажений */
+}
+
+/* БЕЛЫЙ БЛОК ВО ВСЮ ШИРИНУ */
+.full-width-white-block {
+    margin-top: 0;
+    background-color: white;
+    width: 100%;
+    height:280px ;
+
+    overflow: visible;
+    /* Добавляем тень: 
+       0px по горизонтали, 
+       2px смещение вниз, 
+       5px размытие, 
+       0px растяжение, 
+       цвет (полупрозрачный черный) */
+    box-shadow: 0 4px 6px -1px rgba(166, 165, 165, 0.1), 0 2px 4px -1px rgba(166, 165, 165, 0.1) !important;
+    
+    /* Эти свойства обязательны, чтобы тень была видна: */
+    position: relative; /* Создает контекст для тени */
+    z-index: 10;        /* Поднимает блок над серым фоном */
+}
+
+/* КОНТЕЙНЕР ДЛЯ ЦЕНТРИРОВАНИЯ */
+.content-wrapper {
+    /*background-color: #3aea57;*/
+    width: 1015px;
+    height: 260px;
+    margin-top: 55px;
+    margin-left: 260px;
+    padding-top:26px;
+    padding-left:0px;
+    display: flex; /* РАССТАВЛЯЕТ ЭЛЕМЕНТЫ В РЯД */
+    align-items: flex-start; /* Выравнивает аватар и текст по верху */ 
+}
+
+/* АВАТАРКА */
+.avatar-container-profile {
+    width: 165px;
+    height: 165px;
+    border-radius: 50%;
+    border:1.5px solid gray;
+    z-index: 3;
+}
+.avatar-container-profile:hover{
+    filter: brightness(0.90);
+    cursor: pointer;
+}
+.avatar-container-profile img { 
+    width: 165px; 
+    height: 165px; 
+    border-radius: 50%; 
+    display: block; 
+}
+/*---------------------------------------------------------------------------------------------*/
+/* Контейнер с текстом */
+.info-container {
+    width: 900px;
+    margin-left: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.user-name {
+    padding-left:6px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #050505;
+    font-size: 32px;
+    font-weight: 700;
+    width: 221px;
+    padding-right:7px;
+    padding-top:7px;
+    height: 46px;
+    border-radius: 10px;
+    margin-top: 17px;
+    margin-bottom: 0;
+    margin-left:-8px;
+}
+.user-name:hover{
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+.action-buttons{
+    display: flex;         /* Включаем Flexbox */
+    gap: 8px;              /* РАВНОЕ расстояние между ВСЕМИ кнопками */
+    width: 470px;
+    height: 36px;
+    margin-top:-40px;
+    margin-left:358.5px;
+    /*background-color: #ec18ff;*/
+}
+.action-buttons button {
+    display: flex;
+    align-items: center;    /* Выравнивает иконку и текст по вертикали */
+    justify-content: center; /* Выравнивает по горизонтали */
+   
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 15px;
+    height: 36px;           /* Фиксируем высоту для всех кнопок */
+}
+/* Размер иконки */
+.btn-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;      /* Отступ справа от иконки до текста */
+    object-fit: contain; /* Чтобы иконка не искажалась */
+}
+
+.btn-message { 
+    background-color: #e2e5e9; 
+    width: 140px;
+}
+.btn-message:hover{
+    cursor:pointer;
+    filter: brightness(0.95);   
+}
+
+.btn-add { 
+    background-color: #0866ff; 
+    color:white;
+    width:180px;
+    height: 35px;
+}
+.btn-add:hover{
+    cursor:pointer;
+    filter: brightness(0.95);   
+}
+.btn-search{
+    width:90px;
+    background-color: #e2e5e9;
+}
+.btn-search:hover{
+    cursor:pointer;
+    filter: brightness(0.95);   
+}
+/* Специфика для кнопки с многоточием (меньше паддинг) */
+.btn-more {
+    width:45px;
+    background-color: #e2e5e9;
+}
+.btn-more img{
+    margin-left:5px;
+    width: 11px;
+    height: 11px;
+}
+.btn-more:hover{
+    cursor:pointer;
+    filter: brightness(0.95);
+}
+.icon1{
+    width: 13px;
+}
+.icon2{
+    width: 10px;
+    margin-left:6px;
+}
+.icon3{
+    width: 13px;
+    margin-left:6px;
+}
+.icon4{
+    width: 13px;
+    margin-left:6px;
+}
+.user-stats {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 15px;
+    color: black;
+    font-weight:550;
+    margin-top: 5px; 
+    margin-left:0%;
+    margin-bottom: 0;
+}
+span{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14.8px;
+    font-weight: 600;
+}
+span:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+/* Стили для блока деталей профиля */
+.profile-details {
+    display: flex;
+    flex-direction: row; /* Иконки друг под другом */
+    gap: 5px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #1c1e21;
+    
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+}
+.detail-item4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+}
+.detail-item4:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+/* Выравнивание иконки и текста внутри кнопки */
+.profile-line { /* Линия-разделитель */
+    width: 1029px;
+    margin-top:-64px;
+    margin-left:245px;
+    border-top: 1px solid #ced0d4;
+}
+
+/* Контейнер меню */
+.action-buttons-menu {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: -6px;
+    margin-left: 245px;
+    width: 1046px;
+    height:50px ;
+}
+
+/* Общий стиль для кнопок меню */
+.btn-menu-item {
+    background: transparent;
+    border: none;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #65676b;
+    cursor: pointer;
+    border-radius: 6px;
+    white-space: nowrap;
+    height: 100%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Эффект наведения */
+.btn-menu-item:hover {
+    background-color: #f2f2f2;
+}
+.all-btn{
+    color: #0866ff;
+    position: relative; 
+    background: transparent;
+    border: none;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 100%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    border-bottom:3px solid #0866ff;
+    height: 59px;
+}
+
+/* Блок кнопки "Ещё" (троеточие) */
+.menu-more { 
+    display: flex;
+    margin-left: 400px;   
+}
+.more-btn {
+    background-color: #e4e6eb;
+    border: none;
+    width: 48px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #050505;
+    cursor: pointer;
+}
+.more-btn:hover { /* Эффект при наведении на троеточие */
+    background-color: #dbdde0;
+}
+
+/* ------------------------------------------------------ */
+/* --- СЕРЫЙ ФОН И ДВУХКОЛОНОЧНАЯ СЕТКА --- */
+.content-gray-bg {
+    background-color: #f0f2f5;
+    width: 100%;
+    padding: 16px 0;
+    min-height: 600px;
+}
+
+.main-content-container {
+    /*background-color: #ff590b;*/
+    width:1100px;
+    margin-left: 213px;
+    display: flex;
+    gap: 16px;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+/*ЛЕВЫЕ БЛОКИ--------------------------------------------------------------------------------------*/
+.left-column {
+    /*background-color: #bcd407;*/
+    margin-left:0px;
+    width: 425px;
+    height: 1390px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    top: 0px;             /* Отступ сверху (чтобы блок не прилипал вплотную к шапке) */
+}
+/* --- КАРТОЧКА "КРАТКАЯ ИНФОРМАЦИЯ" --- */
+.info-card {
+    background-color:white;
+    border-radius: 13px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding-top:13px;
+    padding-bottom: 12px;
+}
+
+.info-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #050505;
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding-left:17px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top:10px;
+    margin-left:7px;
+    margin-bottom: 16px;
+    color: #050505;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-icon-img {
+    width: 23.5px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0; /* Не дает иконке сжиматься */
+    margin-left:15px;
+}
+
+.info-item p {
+    margin: 0;
+    font-weight: 400;
+}
+
+.info-item strong {
+    font-weight: 600;
+}
+/*-------------------------*/
+.info-item-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left:8px;
+    margin-right:8px;
+    margin-bottom: 0px;
+    color: #050505;
+    font-size: 15px;
+    font-weight: 600;
+    /*background-color: #65676b;*/
+    height: 40px;
+    border-radius:8px;
+}
+.info-item-btn:hover{
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+.info-item-btn:last-child {
+    margin-bottom: 0;
+}
+
+
+.info-item-btn p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.info-item-btn strong {
+    font-weight: 600;
+}
+/*------------------------*/
+.title{
+    font-size: 20px;
+    font-weight: 700;
+    color: #050505;
+    margin-top: 30px;
+    margin-bottom: 8px;
+    padding-left:17px;
+}
+/* -----------------------*/
+/* ----------------------*/
+.communities-item {
+    display: flex;        /* Ставит лого и текст в ряд */
+    align-items: center;  /* Выравнивает их по вертикали */
+    gap: 12px;           /* Отступ между логотипом и текстом */
+    /*background-color: #87396d;*/
+    height: 60px;
+    border-radius:8px;
+    margin-left:8px;
+    margin-right:8px;
+}
+.communities-item:hover{
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+/* Это тот самый кружок для логотипа */
+.community-cover {
+    width: 40px;          /* Размер кружка */
+    height: 40px;
+    border-radius: 20%;   /* Делает блок идеально круглым */
+    overflow: hidden;     /* Обрезает картинку по кругу */
+    border: 1px solid #dddfe2; /* Тонкая серая рамка, как в FB */
+    flex-shrink: 0;       /* Чтобы кружок не сжимался */
+    margin-left:8px;
+}
+
+.community-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Картинка заполнит кружок без искажений */
+}
+
+.communities-item  p {
+    margin: 0;
+    font-size: 15px;
+    color: #050505;
+    font-weight: 600;
+}
+/*РАБОТА--------------------------*/
+.work-item {
+    display: flex;        /* Ставит лого и текст в ряд */
+    align-items: center;  /* Выравнивает их по вертикали */
+    gap: 12px;           /* Отступ между логотипом и текстом */
+    height: 52px;
+    margin-left:8px;
+    margin-right:8px;
+    border-radius:8px;
+}
+.work-item:hover{
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+/* Это тот самый кружок для логотипа */
+.work-logo-circle {
+    width: 40px;          /* Размер кружка */
+    height: 40px;
+    border-radius: 50%;   /* Делает блок идеально круглым */
+    overflow: hidden;     /* Обрезает картинку по кругу */
+    border: 1px solid #dddfe2; /* Тонкая серая рамка, как в FB */
+    flex-shrink: 0;       /* Чтобы кружок не сжимался */
+    margin-left:8px;
+}
+
+.work-logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Картинка заполнит кружок без искажений */
+}
+
+.work-item p {
+    margin: 0;
+    font-size: 15px;
+    color: #050505;
+    font-weight: 600;
+}
+/*ОБРАЗОВАНИЕ------------------------*/
+/*РАБОТА--------------------------*/
+.education-item {
+    display: flex;        /* Ставит лого и текст в ряд */
+    align-items: center;  /* Выравнивает их по вертикали */
+    gap: 12px;           /* Отступ между логотипом и текстом */
+    height: 52px;
+    margin-left:8px;
+    margin-right:8px;
+    border-radius:8px;
+}
+.education-item:hover{
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+/* Это тот самый кружок для логотипа */
+.education-logo-circle {
+    width: 40px;          /* Размер кружка */
+    height: 40px;
+    border-radius: 50%;   /* Делает блок идеально круглым */
+    overflow: hidden;     /* Обрезает картинку по кругу */
+    border: 1px solid #dddfe2; /* Тонкая серая рамка, как в FB */
+    flex-shrink: 0;       /* Чтобы кружок не сжимался */
+    margin-left:8px;
+}
+
+.education-logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Картинка заполнит кружок без искажений */
+}
+
+.education-item p {
+    margin: 0;
+    font-size: 15px;
+    color: #050505;
+    font-weight: 600;
+}
+/* Заглушка под пост справа */
+.post-card-placeholder {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+    padding: 16px;
+}
+strong:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+#underline:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* Стили для карточки с фото */
+.side-card { /*Блок Фото*/
+    margin-top:18px; /*Растояние от блока Краткая информация*/
+    background:white;
+    border-radius: 8px;
+    padding: 15px;/*Отступы по сторонам*/
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+.card-header { /*часть Фото Все фото*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    margin-bottom: 22px;
+    width: 402px;
+}
+.tekst1{
+    font-family:'Segoe UI', Arial, sans-serif; 
+    font-weight:bold;  
+    font-size: 20px; 
+}
+.tekst1:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tekst2{
+    font-family:'Segoe UI', Arial, sans-serif; 
+    font-size: 17px; 
+    text-decoration: none;
+    color: #0d70da;
+    border-radius: 6px;       /* Скругление углов */
+
+    padding-top:7px;
+    padding-bottom: 7px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+.tekst2:hover{
+    background-color: #f2f2f2;
+    border-radius: 6px;       /* Скругление углов */
+
+}
+.photo-grid { /*сетка из фото*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+    gap: 4px; /* Расстояние между квадратами */
+    width: 390px;
+    height: 390px;
+    margin-left: 1%;
+    margin-bottom:5px;
+    /*background-color: #0ddab5;*/
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 100%;
+
+    aspect-ratio: 1 / 1; /* Делает элемент квадратным */
+    object-fit: cover;
+    object-position: center;  /* Фокус на центр (можно заменить на 'top' или 'left') */
+    /*border-radius: 8px;*/
+    background-color: #e4e6eb; /* Цвет фона, если фото не загрузилось */
+    
+}
+.photo-grid img:hover{
+    cursor: pointer;
+    filter: brightness(0.95); /* Затемнение на 10% */
+}
+
+.pilt1{
+  border-top-left-radius: 8px; /* радиус только для одного верхнего левого угла */  
+}
+.pilt7{
+    border-bottom-left-radius: 8px; /* радиус только для одного нижнего левого угла */      
+}
+.pilt3{
+    border-top-right-radius:8px; /* радиус только для одного верхнего правого угла */
+}
+.pilt9{
+    border-bottom-right-radius: 8px; /* радиус только для одного нижнего правого угла */      
+}
+
+/* Стили для футера с ссылками */
+.footer-info{
+    line-height: 1.2;/*высота растояния между строк*/
+    font-family:'Segoe UI', Arial, sans-serif; 
+    font-size: 13px;
+    font-weight: 600;
+}
+.footer-links {
+    text-decoration: none;   
+    color: #65676b;
+}
+.footer-links:hover {
+    text-decoration: underline;
+}
+.veel{
+    text-decoration: none; 
+    color: #65676b;
+}
+.veel a:hover{
+    text-decoration: none !important;
+}
+
+/*ПРАВЫЕ БЛОКИ--------------------------------------------------------------------------------------*/
+.right-column {
+    flex-grow: 1;
+}
+
+
+
+/* --- ЛЕНТА ПОСТОВ ------------------------------------------------------------------ */
+.post-card { /* Блок поста */
+    background-color: white;
+    border-radius: 13px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding-top:11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    padding-bottom: 3px;
+    margin-bottom: 16px; /*расстояние между блоками постов*/
+    width: 570px;
+}
+.post-card-0 { /* Блок поста */
+    background-color: white;
+    border-radius: 13px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding-top:13px;
+    padding-right: 11px;
+    padding-left: 16px;
+    padding-bottom: 13px;
+    margin-bottom: 16px; /*расстояние между блоками постов*/
+    width: 570px;
+    height: 25px;
+}
+.publications{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #050505;
+    margin-top:0px;
+    margin-bottom:0px;
+    width: 123px;
+}
+.filters-btn{
+    background-color:#e2e5e9;
+    width: 103px;
+    height: 20px;
+    margin-top:-32px;
+    margin-left: 448px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    padding-top:6px;
+    padding-bottom:11px;
+    padding-left:10px;
+    padding-right:5px;
+    border-radius: 8px;
+}
+.filters-btn:hover{
+    cursor: pointer;
+    filter: brightness(0.90);
+}
+.filters-icon{
+    /*border:2px solid red;*/
+    width: 21px;
+    height: 18px;
+    margin-top: 3px;
+    margin-right:6px;
+}
+
+.post-header { /* блок аватарки, имени, даты выкладки постов*/
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    /*background-color: #0866ff;*/
+}
+.post-avatar { /*круг аватарки*/
+    margin-right: -0.9%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+
+
+}
+.post-avatar:hover { /* Эффект при наведении мыши на круг аватарки */
+    filter: brightness(0.90);/*эффект легкого затемнения*/
+    cursor: pointer; /* Делает курсор в виде пальца */
+}
+.post-meta {/* блок имени, даты выкладки постов*/
+    display: flex;
+    flex-direction: column;
+    /*background-color: #e72e0d;*/
+}
+.post-author { /* Блок - Имя, Фамилия*/
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #050505;
+    /*background-color: #e72e0d;*/
+}
+
+.meta-row { /*Имя и действие*/
+    margin-top:0%;
+    display: flex;         /* Включаем Flex-режим */
+    flex-direction: row;   /* Ставим элементы в ряд */
+    align-items: center;   /* Выравниваем по вертикали по центру */
+    gap: 5px;          
+  /*background-color: aqua;*/
+}
+.author-name {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #050505;
+}
+.author-name:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.update-text {
+    color: #65676b;
+    font-size: 15px;    
+}
+.meta-row-time{
+    flex-direction: column;     
+}
+.online{
+    width: 15px;
+}
+.post-time {
+    font-size: 13px;
+    color: #65676b;
+    margin-top: 2px;
+}
+.post-content {
+    margin-top: 0%;
+    padding-top: 0px;
+    /*background-color: aqua;*/
+    font-size: 15px;
+    line-height: 1.5;
+    color: #050505;
+}
+.post-content2{
+    /*background-color: chocolate;*/
+    margin-top: -3%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 15.5px;
+}
+.post-image-box { /*блок для картинки*/
+    max-height: 500px;
+    width: auto !important;          /* Позволяет картинке выйти за рамки */
+    margin-left: -11px !important;   /* Втягивает левый край вплотную к стенке карточки */
+    margin-right: -11px !important;  /* Втягивает правый край вплотную к стенке карточки */
+    margin-top: -7px !important;
+    margin-bottom: -7px !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+.post-image-box:hover{
+    cursor: pointer;
+}
+.post-image-box-avatar{
+    max-height: 500px;
+    width: auto !important;          /* Позволяет картинке выйти за рамки */
+    margin-left: -11px !important;   /* Втягивает левый край вплотную к стенке карточки */
+    margin-right: -11px !important;  /* Втягивает правый край вплотную к стенке карточки */
+    margin-top: -1px !important;
+    margin-bottom: -7px !important;
+    padding: 0 !important;
+    overflow: hidden;    
+}
+.post-img { /*картинка*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.post-img:hover{
+    cursor:pointer;
+}
+.post-image-box2{
+    width: auto !important;
+    height: 650px !important;       /* Ограничиваем высоту (подбери цифру, какая нравится: 300px, 400px) */
+    overflow: hidden;               /* Всё, что не влезает по высоте, аккуратно срезается */
+    margin-left: -11px !important;
+    margin-right: -11px !important;
+    margin-top: -2.5px !important;
+    margin-bottom: 0px !important;
+}
+.post-img2 { /*картинка*/
+    width: 100% !important;
+    height: 100% !important;        /* Заставляем картинку занять все 350px высоты контейнера */
+    display: block !important;
+    object-fit: cover !important;   /* Картинка сохраняет свои пропорции, лишнее просто обрежется */
+    
+    /* МАГИЯ ТУТ: центр картинки смещается вниз, то есть верхушка обрезается, и изображение «поднимается» */
+    object-position: center 55% !important;
+}
+.post-img2:hover{
+    cursor: pointer;
+}
+.post-img2-1 { /*картинка*/
+    width: 100% !important;
+    height: 100% !important;        /* Заставляем картинку занять все 350px высоты контейнера */
+    display: block !important;
+    object-fit: cover !important;   /* Картинка сохраняет свои пропорции, лишнее просто обрежется */
+    
+    /* МАГИЯ ТУТ: центр картинки смещается вниз, то есть верхушка обрезается, и изображение «поднимается» */
+    object-position: center 70% !important;
+}
+.post-img2-1:hover{
+    cursor: pointer;
+}
+.post-img2-1-2{
+    width: 100% !important;
+    height: 100% !important;        /* Заставляем картинку занять все 350px высоты контейнера */
+    display: block !important;
+    object-fit: cover !important;   /* Картинка сохраняет свои пропорции, лишнее просто обрежется */
+    
+    /* МАГИЯ ТУТ: центр картинки смещается вниз, то есть верхушка обрезается, и изображение «поднимается» */
+    object-position: center 50% !important;    
+}
+.post-img2-1-2:hover{
+    cursor: pointer;
+}
+.post-img3 { /*картинка*/
+    width: 100% !important;
+    height: 100% !important;        /* Заставляем картинку занять все 350px высоты контейнера */
+    display: block !important;
+    object-fit: cover !important;   /* Картинка сохраняет свои пропорции, лишнее просто обрежется */
+    
+    /* МАГИЯ ТУТ: центр картинки смещается вниз, то есть верхушка обрезается, и изображение «поднимается» */
+    object-position: center 35% !important;
+}
+.post-img3:hover{
+    cursor: pointer;
+}
+/* --- 1 РЯД: СЧЁТЧИКИ РЕАКЦИЙ  --------------------------------------------- */
+.post-actions-bar {
+    display: flex;
+    /*background-color: #0d61e7;*/
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 8px 0;
+    margin: 12px 16px;*/
+    margin-top:1%;
+    margin-left:0.5%;
+    margin-right:0.4%;
+    height: 35px;    
+}
+.action-item-clean1 img {
+    width: 40px;
+    height: 20px;
+    object-fit: contain;
+}
+.action-item-clean2 img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.action-item-clean2{
+    margin-left: auto;/* Автоматически съедает всё свободное пространство слева */
+    margin-right: 12px;/* Небольшой зазор между комментариями и репостами */
+}
+.action-item-clean3 img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+/* Выравниваем все три счетчика строго по вертикальному центру */
+.action-item-clean1, 
+.action-item-clean2, 
+.action-item-clean3 {
+    display: inline-flex;  /* Включаем флекс для каждого счетчика */
+    align-items: center;   /* Выравнивает текст и картинку строго по одной центральной линии */
+    gap: 4px;              /* Небольшой аккуратный зазор между цифрой и иконкой */
+}
+.action-item-clean1, 
+.action-item-clean2, 
+.action-item-clean3:hover{
+    cursor: pointer;
+}
+
+/* Задаем одинаковую высоту для картинок внутри этих блоков */
+.action-item-clean1 img, 
+.action-item-clean2 img, 
+.action-item-clean3 img {
+    display: block;
+    height: 18px;          /* Идеальный размер для маленьких системных иконок */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Сбрасываем высоту строки у текста, чтобы он не падал вниз */
+.action-item-clean1 .count-text,
+.action-item-clean2 .count-text,
+.action-item-clean3 .count-text {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    color: #65676b;
+    line-height: 1;        /* Убираем лишние невидимые отступы шрифта */
+    margin: 0;
+    padding: 0;
+}
+.count-text {
+    margin: 0 !important;        
+    padding: 0 !important;
+    color: #65676b;
+    font-size: 14px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    /*background-color: aqua;*/
+    line-height: 1 !important;   /* Зажимаем высоту строки, чтобы текст не падал вниз */
+}
+.action-item-clean1-1 {
+    display: inline-flex !important;
+    align-items: center !important; /* Выстраивает иконку и цифру идеально по одной центральной оси */
+    gap: 4px !important;            /* Аккуратный зазор между иконкой и цифрой */
+}
+.action-item-clean1-1 img{
+    margin-left:-4px;
+    display: block;
+    height: auto;         
+    width: 63px;
+    object-fit: contain;
+}
+
+/* 2 РЯД: ДВЕ КНОПКИ-КАРТИНКИ ПОД ЛИНИЯМИ ---------------------------------------- */
+.post-clickable-bottom-row { /*контейнер в котором находятся 2 кнопки*/
+    display: flex;         
+    flex-direction: row;   
+    justify-content: space-between;
+    align-items: center;
+    padding-left:6px;
+    padding-right:6px;
+    gap: 8px;   
+    /*background-color: #0866ff;*/   
+}
+.pure-image-button { /*сами кнопки*/
+    flex: 1;               
+    background: none !important;
+    border: none !important;     
+    outline: none !important;
+    box-shadow: none !important;
+    margin: 0;
+    cursor: pointer;
+    width: 100%;
+    height:32px; /*высота кнопок*/
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Расстояние между иконкой пальца/сообщения и текстом */
+    /*background-color: #1c1e21;*/     
+}
+.pure-image-button:hover {/* Лёгкий серый фон при наведении на кнопку */
+    background-color: #f2f2f2 !important;
+    text-decoration: none !important;
+}
+.like-icon {/* иконка пальца вверх  в кнопки поставить нравится*/
+    width: 23px;
+    object-fit: contain;  
+    display: block;
+}
+.pure-image-button .button-text {/* Системный шрифт для текста кнопок, как в оригинале */
+    font-size: 15px;
+    font-weight: 600;
+    color: #65676b; /* Фирменный серый цвет текста Фейсбука */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-decoration: none !important; /* Убирает подчёркивание при наведении на текст*/
+}
+.comment-icon{
+    height: 23px;
+    width: 23px;
+    object-fit: contain;  
+    display: block;
+}
+/*  ---------------------------------------- */
+/* Контейнер-сетка для двух изображений */
+.post-image-grid-2 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr; /* Делим пространство строго на 2 равные колонки */
+    gap: 4px;                       /* Тонкий аккуратный зазор между фото, как на Facebook */
+    width: 100%;
+    margin-top: 10px;               /* Отступ сверху от текста поста */
+    background-color: #f0f2f5;
+    overflow: hidden;               /* Чтобы картинки не вылезали за скругленные углы поста */
+}
+
+/* Стили для самих картинок внутри этой сетки */
+.post-img-grid {
+    display: block;
+    width: 100%;
+    height: 300px;                  /* Фиксированная высота, чтобы обе картинки были одной линии */
+    object-fit: cover;              /* Картинки автоматически подгоняются и обрезаются без искажения пропорций */
+}
+
+/* Эффект при наведении (как на Facebook) */
+.post-img-grid:hover {
+    cursor: pointer;
+}
+/*БЛОК РЕПОСТА ---------------------------------------------------------------------------------------------*/
+/* Контейнер репоста с серой рамкой */
+.repost-container {
+    border: 1px solid #e4e6eb !important; /* Тонкая серая рамка */
+    padding: 0 0 0 0 !important;          /* Обнуляем, чтобы картинка внутри прилегала к краям */
+    overflow: hidden;                     /* Чтобы углы картинки снизу тоже скруглялись */
+    background-color: #ffffff;
+}
+
+/* Шапка внутри репоста (делаем элементы чуть компактнее оригинала) */
+.repost-header {
+    display: flex !important;
+    align-items: center !important;
+    padding-top: 9px;
+    padding-left: 9px;
+    margin-bottom: 0px;
+}
+.repost-avatar {
+    width: 34px !important;               /* Чуть меньше, чем у главного автора */
+    height: 34px !important;
+    border-radius: 50% !important;
+    margin-right: 7px !important;
+    margin-left:5px;
+    margin-top: -15px;
+    margin-bottom: 0px;
+}
+.repost-meta {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.repost-author {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: #050505;
+    margin-top: 0px;
+}
+.repost-date {
+    font-size: 12px !important;
+    color: #65676b;
+}
+.repost-content {/* Текст репоста */
+    margin-top: -22px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding-left:12px;
+    font-size: 15px !important;
+    color: #050505;
+    line-height: 1.3333;
+}
+.repost-img { /* Картинка митинга внутри репоста */
+    display: block;
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+}
+.repost-img:hover{
+    cursor: pointer;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+.link{
+    color:#4e93df;
+    font-weight: bold;
+}
+/*--------------------------------------------------------------------------------------------------------*/
+.repost-logo{
+    object-fit: cover;
+        width: 34px !important;               /* Чуть меньше, чем у главного автора */
+    height: 34px !important;
+    border-radius: 50% !important;
+    margin-right: 7px !important;
+    margin-left:5px;
+    margin-top: -15px;
+    margin-bottom: 0px;
+}
+.bolder{
+    font-weight:600;
+}
+.repost-avatar:hover { /* Эффект при наведении мыши на блок аватарки */
+    filter: brightness(0.90);/*эффект легкого затемнения*/
+    cursor: pointer; /* Делает курсор в виде пальца */
+}
+.repost-logo:hover{
+    filter: brightness(0.90);/*эффект легкого затемнения*/
+    cursor: pointer; /* Делает курсор в виде пальца */
+}
